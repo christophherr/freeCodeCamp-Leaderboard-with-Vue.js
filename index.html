@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Camper Leaderboard with Vue.js</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="app" class="content">
+    <div class="title-area">
+        <h1 class="title is-1">Camper Leaderboard with Vue.js</h1>
+        <div class="buttons">
+            <button class="button is-info is-medium is-outlined" v-on:click="getLeadersRecent">Get Leaderboard for the last 30 days</button>
+            <button class="button is-success is-medium is-outlined" v-on:click="getLeadersAllTime">Get All-Time Leaderboard</button>
+        </div>
+    </div>
+    <table class="table is-striped">
+        <thead>
+            <tr>
+                <th class="five title is-4">#</th>
+                <th class="ten title is-4">Camper<br/> Avatar</th>
+                <th class="twenty-five title is-4">Camper Name</th>
+                <th class="twenty-five title is-4 has-text-centered">Points in the last 30 days</th>
+                <th class="twenty-five title is-4 has-text-centered">All-Time points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(camper, index) in campers">
+                <td class="five">{{index + 1}}</td>
+                <td class="ten"><img v-bind:src="camper.img" /></td>
+                <td class="twenty-five">{{ camper.username }}</td>
+                <td class="twenty-five has-text-centered">{{ camper.recent }}</td>
+                <td class="twenty-five has-text-centered">{{ camper.alltime }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script src="/assets/app.js"></script>
+</body>
+</html>

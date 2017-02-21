@@ -1,0 +1,35 @@
+.content {
+    font-size: 1.2rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+    width: 100%;
+}
+
+.title-area {
+    margin-bottom: 15px;
+}
+
+.content table th.has-text-centered {
+    text-align: center;
+}
+
+.five {
+    width: 5%;
+}
+
+.ten {
+    width: 10%;
+}
+
+.ten img {
+    vertical-align: middle;
+    line-height: 20px;
+    width: 40px;
+}
+
+.twenty-five {
+    line-height: 40px;
+    vertical-align: middle;
+    width: 23%;
+}
