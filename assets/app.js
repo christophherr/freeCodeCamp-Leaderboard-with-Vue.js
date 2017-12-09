@@ -1,3 +1,4 @@
+// @ts-check
 const app = new Vue({
   el: '#app',
   data: {
@@ -9,22 +10,16 @@ const app = new Vue({
     this.getLeadersRecent();
   },
   methods: {
-    getLeadersAllTime: _.debounce(
-      function() {
-        axios.get(this.leadersAllTime).then(function(response) {
-          app.campers = response.data;
-        });
-      },
-      500
-    ),
+    getLeadersAllTime: _.debounce(function getLeadersAllTime() {
+      axios.get(this.leadersAllTime).then((response) => {
+        app.campers = response.data;
+      });
+    }, 500),
 
-    getLeadersRecent: _.debounce(
-      function() {
-        axios.get(this.leadersRecent).then(function(response) {
-          app.campers = response.data;
-        });
-      },
-      500
-    )
+    getLeadersRecent: _.debounce(function getLeadersRecent() {
+      axios.get(this.leadersRecent).then((response) => {
+        app.campers = response.data;
+      });
+    }, 500)
   }
 });
